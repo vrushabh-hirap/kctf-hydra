@@ -1,0 +1,9 @@
+{
+  "clueA_hex": "d52ccb0b3084429da6adffe91bb1de50a6c261f7a92583b6fed96c7f632ed435",
+  "clueB_b64": "dZYcqoozhuVt2AkHfSaSDP1GesanGVCumSZqG+CW/bo=",
+  "clueC_b64": "W7fNBKn0bva/m7uylhg/nyUL2trr3iGLGFrIOJlMtb8=",
+  "seed": "464761fea19c7539e404bafce5ac0bc9017d525bd31affdb9761eb853fcb17b5",
+  "flag": "KCTF{hydra_1k_layers_crypt0_stego_math_and_state_collide_never}",
+  "defaultSecret": "4b51345f4eb76ead45138aa4cf7b98661977254f852e9df35c9144fe9eb34acd",
+  "sealedFlagB64": "VUqfE72pKXwFgUd+Tu5Qc7japjsHQVdH4nqklVoaAae3g6BNhRppYRE4RhJ+bFRAHuGSVoQ5It28L7C7ZeWY"
+}

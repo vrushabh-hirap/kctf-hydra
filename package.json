@@ -1,0 +1,7 @@
+{
+  "name": "hydra-thousandfold",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KCTF HYDRA: Thousandfold serverless CTF challenge",
+  "engines": { "node": ">=18" }
+}
