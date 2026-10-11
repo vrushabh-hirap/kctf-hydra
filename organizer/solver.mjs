@@ -527,9 +527,14 @@ function runMemory() {
 /* ======================= HTTP full playthrough =================== */
 
 async function runHttp() {
-  const server = http.createServer(gate);
-  await new Promise((r) => server.listen(8791, r));
-  const base = 'http://127.0.0.1:8791/api/gate';
+  const external = process.env.HYDRA_BASE && process.env.HYDRA_BASE.trim();
+  const base = (external || 'http://127.0.0.1:8791') + '/api/gate';
+  let server = null;
+  if (!external) {
+    server = http.createServer(gate);
+    await new Promise((r) => server.listen(8791, r));
+  }
+  console.log('[http] target: ' + base);
   const req = async (op, body) => {
     const r = await fetch(base + '?op=' + op, {
       method: body ? 'POST' : 'GET',
@@ -567,7 +572,7 @@ async function runHttp() {
     }
     token = r.token;
   }
-  server.close();
+  if (server) server.close();
 }
 
 /* Same full API playthrough without opening a local TCP listener (useful in

@@ -59,6 +59,14 @@ Adversarial self-audit (token tampering, replay, PoW skipping, prompt-leak scan 
 FLAG_SECRET=... TOKEN_SECRET=... node organizer/security-check.mjs
 ```
 
+Post-deployment health check against any live URL (run this the moment a deployment is live — it catches the classic "forgot the env vars" 503):
+
+```sh
+node organizer/deploy-check.mjs https://your-project.vercel.app
+```
+
+It should print 10/10 PASS and the exact command to run a complete 1000-gate proof against that URL (`HYDRA_BASE=... node organizer/solver.mjs`).
+
 `.vercelignore` excludes `organizer/`, `secret/`, and `assets/` from deployment. `organizer/` contains private answer-generation, the solvers, the expected flag, and the value needed to configure `FLAG_SECRET`. The only flag in the deployed handler is block-sealed with a `FLAG_SECRET`-derived keystream (`sha256(FLAG_SECRET + '|hydro|block|' + i)` per 32-byte block); the separate `TOKEN_SECRET` signs progression tokens and keys the gate generator.
 
 ## Challenge reference
